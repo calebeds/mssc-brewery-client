@@ -1,6 +1,7 @@
 package guru.springframework.msscbreweryclient.web.client;
 
 import guru.springframework.msscbreweryclient.web.model.BeerDto;
+import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
@@ -26,6 +27,10 @@ public class BreweryClient {
 
     public URI saveNewBeer(BeerDto beerDto) {
         return restTemplate.postForLocation(apiHost + BEER_PATH_V1, beerDto);
+    }
+
+    public void updateBeer(UUID uuid, BeerDto beerDto) {
+        restTemplate.put(apiHost + BEER_PATH_V1 + "/" + uuid.toString(), beerDto);
     }
 
     public void setApiHost(String apiHost) {
