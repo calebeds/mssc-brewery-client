@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.UUID;
 
 @Component
-@ConfigurationProperties(value = "sfg.brewery", ignoreUnknownFields = false)
+@ConfigurationProperties(value = "cds.brewery", ignoreUnknownFields = false)
 public class CustomerClient {
     public final String CUSTOMER_PATH_V1 = "/api/v1/customer/";
     private final RestTemplate restTemplate;
